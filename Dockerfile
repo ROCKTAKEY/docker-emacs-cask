@@ -14,5 +14,10 @@ RUN apt -y update                                                 && \
     echo " 'package-archives"   >> ~/.emacs.d/init.el             && \
     echo " '(\"melpa\" . \"https://melpa.milkbox.net/packages/\"))"  \
     >> ~/.emacs.d/init.el                                         && \
-    echo "(define-key key-translation-map (kbd \"C-h\") (kbd \"DEL\"))" \
-    >> ~/.emacs.d/init.el
+    echo                                                             \
+    "(define-key key-translation-map (kbd \"C-h\") (kbd \"DEL\"))"   \
+    >> ~/.emacs.d/init.el                                         && \
+    apt install -y python curl                                    && \
+    curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go \
+    | python                                                      && \
+    export PATH="~/.cask/bin:$PATH"
