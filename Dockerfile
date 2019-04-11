@@ -19,5 +19,6 @@ RUN apt -y update                                                 && \
     >> ~/.emacs.d/init.el                                         && \
     apt install -y python curl                                    && \
     curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go \
-    | python                                                      && \
-    export PATH="~/.cask/bin:$PATH"
+    | python
+
+ENV PATH "~/.cask/bin:$PATH"
